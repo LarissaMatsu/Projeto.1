@@ -1,137 +1,56 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Serviços de Construção</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #2f4f7f;
-            background-image: linear-gradient(to bottom, #2f4f7f, #1a2f4f);
-            height: 100vh;
-            margin: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .container {
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            transform: rotateX(10deg) rotateY(10deg);
-            transition: transform 0.5s;
-            width: 80%;
-            max-width: 1200px;
-        }
-
-        .container:hover {
-            transform: rotateX(0deg) rotateY(0deg);
-        }
-
-        .header {
-            background-color: #2f4f7f;
-            color: #fff;
-            padding: 20px;
-            text-align: center;
-            border-radius: 10px 10px 0 0;
-        }
-
-        .cards {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            padding: 20px;
-        }
-
-        .card {
-            background-color: #fff;
-            padding: 20px;
-            margin: 20px;
-            width: 300px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            transform: rotateX(10deg) rotateY(10deg);
-            transition: transform 0.5s;
-        }
-
-        .card:hover {
-            transform: rotateX(0deg) rotateY(0deg);
-        }
-
-        .card h2 {
-            color: #2f4f7f;
-        }
-
-        .card p {
-            color: #666;
-        }
-
-        .card .price {
-            color: #2f4f7f;
-            font-weight: bold;
-        }
-
-        .card button {
-            background-color: #2f4f7f;
-            color: #fff;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transform: rotateX(10deg) rotateY(10deg);
-            transition: transform 0.5s;
-        }
-
-        .card button:hover {
-            transform: rotateX(0deg) rotateY(0deg);
-            background-color: #1a2f4f;
-        }
-
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
-            justify-content: center;
-            align-items: center;
-        }
-
-        .modal-content {
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            width: 80%;
-            max-width: 800px;
-        }
-
-        .modal-content img {
-            width: 100%;
-            height: 400px;
-            object-fit: cover;
-            border-radius: 10px 10px 0 0;
-        }
-
-        .modal-content p {
-            color: #666;
-            padding: 20px;
-        }
-    </style>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Energia Solar - Soluções Sustentáveis</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}" />
 </head>
 <body>
-    <div class="container">
-        <div class="header">
-            <h1>Serviços de Construção</h1>
-        </div>
-        <div class="cards">
-            <div class="card">
-                <h2>Construção de Casas</h2>
-                <p>Construímos casas personalizadas para você e sua família.</p>
-                <p class="price">R$ 500.000,00</p>
-                <button id="btn-casa">Saiba
+<header>
+  <div class="container">
+    <div class="logo">Solaris</div>
+    <nav>
+      <a href="{{ url_for('home') }}">Início</a>
+      <a href="#features">Benefícios</a>
+      <a href="{{ url_for('login') }}" class="login-link">Login / Cadastro</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container hero-content">
+    <h1>Energia Solar<br><span>Potência sustentável para seu futuro</span></h1>
+    <p>Transforme a luz do sol em economia e sustentabilidade para sua casa e empresa.</p>
+    <a href="#features" class="btn-primary">Conheça os Benefícios</a>
+  </div>
+  <div class="hero-image" aria-label="Painéis solares no telhado">
+    <!-- Células de painel solar para efeito visual -->
+    {% for i in range(60) %}
+    <div></div>
+    {% endfor %}
+  </div>
+</section>
+
+<section id="features" class="features container">
+  <article>
+    <h2>Economia Real</h2>
+    <p>Reduza seus gastos com energia elétrica com nossas soluções eficientes e modernas.</p>
+  </article>
+  <article>
+    <h2>Energia Sustentável</h2>
+    <p>Contribua para um mundo mais limpo usando energia renovável e limpa.</p>
+  </article>
+  <article>
+    <h2>Alta Durabilidade</h2>
+    <p>Equipamentos com tecnologia de ponta que garantem longa vida útil e maior performance.</p>
+  </article>
+</section>
+
+<footer>
+  <div class="container">
+    <p>&copy; 2024 Solaris Energia Solar. Todos os direitos reservados.</p>
+  </div>
+</footer>
+</body>
+</html>
