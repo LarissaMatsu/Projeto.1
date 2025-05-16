@@ -13,11 +13,10 @@
   }
 
   body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-      Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-    background-color: #f5f5f7;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #2193b0, #6dd5ed);
     color: #1d1d1f;
-    line-height: 1.5;
+    line-height: 1.6;
     font-size: 16px;
     -webkit-font-smoothing: antialiased;
     min-height: 100vh;
@@ -28,47 +27,55 @@
   }
 
   .container {
-    background: white;
-    padding: 3rem 4rem;
-    border-radius: 16px;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-    max-width: 420px;
+    background: #ffffffdd;
+    padding: 3.5rem 4rem;
+    border-radius: 20px;
+    box-shadow: 0 26px 40px rgba(0,0,0,0.25);
+    max-width: 450px;
     width: 100%;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255,255,255,0.3);
   }
 
   h1 {
-    font-weight: 700;
-    margin-bottom: 1.5rem;
+    font-weight: 900;
+    margin-bottom: 2rem;
     text-align: center;
-    color: #111;
+    color: #004d99;
+    letter-spacing: 2px;
+    text-shadow: 0 2px 5px rgba(0,77,153,0.4);
   }
 
   .tabs {
     display: flex;
     justify-content: center;
-    margin-bottom: 2rem;
+    margin-bottom: 2.5rem;
+    border-bottom: 2px solid #ddd;
   }
 
   .tab {
     flex: 1;
     text-align: center;
-    padding: 0.75rem 1rem;
+    padding: 1rem 0;
     cursor: pointer;
-    font-weight: 600;
-    color: #666;
-    border-bottom: 2px solid transparent;
-    transition: border-color 0.3s ease, color 0.3s ease;
+    font-weight: 700;
+    color: #555;
+    border-bottom: 4px solid transparent;
+    transition: all 0.4s cubic-bezier(0.24, 0.92, 0.28, 1);
+    user-select: none;
   }
 
   .tab.active {
     color: #0071e3;
     border-color: #0071e3;
+    box-shadow: inset 0 -4px 0 #0071e3;
   }
 
   form {
     display: none;
     flex-direction: column;
-    gap: 1.1rem;
+    gap: 1.4rem;
   }
   form.active {
     display: flex;
@@ -76,42 +83,45 @@
 
   label {
     font-weight: 600;
-    color: #333;
-    font-size: 0.95rem;
+    color: #222;
+    font-size: 1rem;
   }
 
   input {
-    padding: 0.65rem 0.85rem;
-    border: 1.5px solid #ccc;
-    border-radius: 8px;
+    padding: 0.9rem 1rem;
+    border: 1.8px solid #ccc;
+    border-radius: 12px;
     font-size: 1rem;
     font-family: inherit;
-    transition: border-color 0.3s ease;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: inset 0 2px 5px rgb(0 0 0 / 0.07);
   }
 
   input:focus {
     border-color: #0071e3;
+    box-shadow: 0 0 10px #0071e3aa;
     outline: none;
   }
 
   button {
-    margin-top: 1rem;
-    padding: 0.75rem 0;
-    font-size: 1.1rem;
-    font-weight: 700;
-    border-radius: 24px;
+    margin-top: 1.4rem;
+    padding: 0.85rem 0;
+    font-size: 1.15rem;
+    font-weight: 900;
+    border-radius: 30px;
     cursor: pointer;
-    background-color: #0071e3;
+    background: linear-gradient(135deg, #0b66c2, #1a9ef9);
     color: white;
     border: none;
-    box-shadow: 0 8px 15px rgba(0,113,227,0.3);
-    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 12px 18px rgba(26,158,249,0.5);
+    transition: all 0.3s ease;
   }
 
   button:hover,
   button:focus {
-    background-color: #005bb5;
-    box-shadow: 0 12px 25px rgba(0,91,181,0.5);
+    background: linear-gradient(135deg, #0759a4, #0f79dc);
+    box-shadow: 0 18px 30px rgba(15,121,220,0.7);
+    transform: translateY(-2px);
   }
 
   .messages {
@@ -119,55 +129,93 @@
     margin-bottom: 1rem;
     padding-left: 0;
     text-align: center;
+    min-height: 36px;
   }
 
   .messages li {
-    border-radius: 12px;
-    font-weight: 600;
-    font-size: 0.95rem;
-    padding: 0.75rem 1rem;
+    border-radius: 14px;
+    font-weight: 700;
+    font-size: 1rem;
+    padding: 0.85rem 1.25rem;
+    max-width: 100%;
+    margin: 0 auto;
+    user-select: none;
   }
 
   .msg-success {
-    background-color: #d2f8d2;
-    color: #217821;
-    border: 1px solid #49a549;
+    background-color: #dcf5dc;
+    color: #2a6e2a;
+    border: 1px solid #4fad4f;
+    box-shadow: 0 3px 8px #3e8c3e99;
   }
 
   .msg-error {
-    background-color: #fddede;
+    background-color: #fcdcdc;
     color: #a12727;
     border: 1px solid #ce4646;
+    box-shadow: 0 3px 8px #a1272799;
+  }
+
+  /* Subtle input icons using emojis for fun */
+  label[for*="username"]::before {
+    content: "👤 ";
+  }
+  label[for*="email"]::before {
+    content: "📧 ";
+  }
+  label[for*="password"]::before {
+    content: "🔒 ";
+  }
+
+  @media (max-width: 480px) {
+    .container {
+      padding: 2rem 2.5rem;
+      max-width: 100%;
+      border-radius: 14px;
+      box-shadow: 0 12px 20px rgba(0,0,0,0.12);
+    }
+    h1 {
+      font-size: 1.8rem;
+      margin-bottom: 1.3rem;
+    }
+    .tab {
+      font-size: 0.9rem;
+      padding: 0.75rem 0;
+    }
+    button {
+      font-size: 1rem;
+      padding: 0.7rem 0;
+    }
   }
 </style>
 </head>
 <body>
-  <div class="container" role="main">
+  <div class="container" role="main" aria-label="Formulário de Login e Cadastro">
     <h1>Bem-vindo</h1>
     <div class="tabs" role="tablist">
       <div class="tab active" role="tab" tabindex="0" aria-selected="true" aria-controls="login-form" id="login-tab">Login</div>
       <div class="tab" role="tab" tabindex="-1" aria-selected="false" aria-controls="register-form" id="register-tab">Cadastro</div>
     </div>
 
-    <ul class="messages" id="messages" aria-live="polite"></ul>
+    <ul class="messages" id="messages" aria-live="polite" role="alert"></ul>
 
     <form id="login-form" class="active" aria-labelledby="login-tab" novalidate>
       <label for="login-username">Usuário</label>
-      <input type="text" id="login-username" name="login-username" required autocomplete="username" />
+      <input type="text" id="login-username" name="login-username" required autocomplete="username" placeholder="Seu usuário" />
       <label for="login-password">Senha</label>
-      <input type="password" id="login-password" name="login-password" required autocomplete="current-password" />
+      <input type="password" id="login-password" name="login-password" required autocomplete="current-password" placeholder="Sua senha" />
       <button type="submit">Entrar</button>
     </form>
 
     <form id="register-form" aria-labelledby="register-tab" novalidate>
       <label for="register-username">Usuário</label>
-      <input type="text" id="register-username" name="register-username" required autocomplete="username" />
+      <input type="text" id="register-username" name="register-username" required autocomplete="username" placeholder="Escolha um usuário" />
       <label for="register-email">Email</label>
-      <input type="email" id="register-email" name="register-email" required autocomplete="email" />
+      <input type="email" id="register-email" name="register-email" required autocomplete="email" placeholder="seu@email.com" />
       <label for="register-password">Senha</label>
-      <input type="password" id="register-password" name="register-password" required autocomplete="new-password" />
+      <input type="password" id="register-password" name="register-password" required autocomplete="new-password" placeholder="Digite uma senha segura" />
       <label for="register-password-confirm">Confirmar Senha</label>
-      <input type="password" id="register-password-confirm" name="register-password-confirm" required autocomplete="new-password" />
+      <input type="password" id="register-password-confirm" name="register-password-confirm" required autocomplete="new-password" placeholder="Repita sua senha" />
       <button type="submit">Cadastrar</button>
     </form>
   </div>
@@ -192,36 +240,44 @@
     messagesEl.appendChild(li);
   }
 
+  // Keyboard navigation between tabs
   loginTab.addEventListener('click', () => {
-    loginTab.classList.add('active');
-    registerTab.classList.remove('active');
-    loginTab.setAttribute('aria-selected', 'true');
-    registerTab.setAttribute('aria-selected', 'false');
-    loginTab.tabIndex = 0;
-    registerTab.tabIndex = -1;
-    loginForm.classList.add('active');
-    registerForm.classList.remove('active');
-    clearMessages();
+    switchTab('login');
   });
-
   registerTab.addEventListener('click', () => {
-    registerTab.classList.add('active');
-    loginTab.classList.remove('active');
-    registerTab.setAttribute('aria-selected', 'true');
-    loginTab.setAttribute('aria-selected', 'false');
-    registerTab.tabIndex = 0;
-    loginTab.tabIndex = -1;
-    registerForm.classList.add('active');
-    loginForm.classList.remove('active');
-    clearMessages();
+    switchTab('register');
   });
 
   loginTab.addEventListener('keydown', (e) => {
-    if(e.key === 'ArrowRight' || e.key === 'ArrowLeft') registerTab.click();
+    if(e.key === 'ArrowRight' || e.key === 'ArrowLeft') switchTab('register');
   });
   registerTab.addEventListener('keydown', (e) => {
-    if(e.key === 'ArrowRight' || e.key === 'ArrowLeft') loginTab.click();
+    if(e.key === 'ArrowRight' || e.key === 'ArrowLeft') switchTab('login');
   });
+
+  function switchTab(tab) {
+    if(tab === 'login') {
+      loginTab.classList.add('active');
+      registerTab.classList.remove('active');
+      loginTab.setAttribute('aria-selected', 'true');
+      registerTab.setAttribute('aria-selected', 'false');
+      loginTab.tabIndex = 0;
+      registerTab.tabIndex = -1;
+      loginForm.classList.add('active');
+      registerForm.classList.remove('active');
+      clearMessages();
+    } else {
+      registerTab.classList.add('active');
+      loginTab.classList.remove('active');
+      registerTab.setAttribute('aria-selected', 'true');
+      loginTab.setAttribute('aria-selected', 'false');
+      registerTab.tabIndex = 0;
+      loginTab.tabIndex = -1;
+      registerForm.classList.add('active');
+      loginForm.classList.remove('active');
+      clearMessages();
+    }
+  }
 
   // Login form submission
   loginForm.addEventListener('submit', e => {
@@ -236,7 +292,7 @@
       return;
     }
 
-    // Exemplo simples de validação local
+    // Simple local validation example
     if(username === 'usuario' && password === 'senha123') {
       showMessage('Login realizado com sucesso!', 'success');
       loginForm.reset();
@@ -260,14 +316,22 @@
       return;
     }
 
+    // Email simple validation
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if(!emailPattern.test(email)) {
+      showMessage('Por favor, insira um email válido.', 'error');
+      return;
+    }
+
     if(password !== passwordConfirm) {
       showMessage('As senhas não conferem.', 'error');
       return;
     }
 
-    // Aqui poderia enviar para backend realmente. Exibição simples por enquanto.
+    // Registration success example
     showMessage('Cadastro realizado com sucesso! Você já pode fazer login.', 'success');
     registerForm.reset();
+    switchTab('login');
   });
 </script>
 </body>
